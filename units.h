@@ -15,7 +15,7 @@ public:
     REQ_TYPES type = NIL;
     std::vector<std::string> args;
     Request(){}
-    Request(REQ_TYPES _type, std::vector<std::string>& _args) : type(_type), args(_args) {}
+    Request(REQ_TYPES _type, std::vector<std::string> _args) : type(_type), args(_args) {}
 
 };
 
@@ -26,8 +26,8 @@ class Answer{
 public:
     const std::string HEADER;
     const std::vector<std::pair<std::string, std::string>> DATA;
-    Answer(){}
-    Answer(std::string _header, std::vector<std::pair<std::string, std::string>>& _data): HEADER(_header), DATA(_data) {}
+    Answer(std::string _header = "") : HEADER(_header){}
+    Answer(std::string _header, std::vector<std::pair<std::string, std::string>> _data): HEADER(_header), DATA(_data) {}
 };
 
 #endif // UNITS_H

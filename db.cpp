@@ -3,7 +3,7 @@ using namespace std;
 
 DB::DB(std::string path)
 {
-    dbfile.open(path, (fstream::out | fstream::app));
+    dbfile.open(dbpath = path, (fstream::out | fstream::app));
     dbfile.close();
 }
 DB::~DB(){
@@ -12,7 +12,7 @@ DB::~DB(){
     }
 }
 
-Answer DB::handle(Request &req)
+Answer DB::handle(Request req)
 {
     switch(req.type){
     case Request::ADD:
@@ -34,4 +34,99 @@ Answer DB::handle(Request &req)
         return Answer();
         break;
     }
+}
+
+Answer DB::add(string key, string value)
+{
+    dbfile.open(dbpath, (fstream::out | fstream::app));
+    if(dbfile.is_open()){
+        dbfile << key+"="+value+"\n";
+        dbfile.close();
+        return Answer("ADD@SUCCESS");
+    }
+    return Answer("ADD@FAIL");
+}
+
+Answer DB::get(string key)
+{
+    bool result = false;
+    dbfile.open(dbpath, fstream::in);
+    if(dbfile.is_open()){
+        string buf;
+        pair<string,string> result_pair;
+        while(std::getline(dbfile, buf)){
+            if(buf.find(key+"=") != string::npos){
+                result_pair = pair<string,string>(key, buf.substr(key.size()+1));
+                result = true;
+                break;
+            }
+        }
+        dbfile.close();
+        if(result == true){
+            return Answer("GET@SUCCESS", vector<pair<string,string>>{result_pair});
+        }
+    }
+    return Answer("GET@FAIL");
+}
+
+Answer DB::rm(string key)
+{
+    dbfile.open(dbpath, (fstream::out | fstream::in));
+    fstream tmp;
+    tmp.open(dbpath+".tmp", fstream::out);
+    bool result = false;
+    if(dbfile.is_open() && tmp.is_open()){
+        string buf;
+        while(std::getline(dbfile, buf)){
+            if(buf.find(key+"=") == string::npos){
+                tmp << buf+"\n";
+            }
+            else{
+                result = true;
+            }
+        }
+        tmp.close();
+        dbfile.close();
+        remove(dbpath.c_str());
+        rename((dbpath+".tmp").c_str(), dbpath.c_str());
+    }
+    if(result == true){
+        return Answer("RM@SUCCESS");
+    }
+    return Answer("RM@FAIL");
+
+}
+
+Answer DB::rmAll()
+{
+    bool result = false;
+    dbfile.open(dbpath, fstream::out);
+    if(dbfile.is_open()){
+        result = true;
+    }
+    dbfile.close();
+    if(result == true){
+        return Answer("RMALL@SUCCESS");
+    }
+    return Answer("RMALL@FAIL");
+}
+
+Answer DB::find(string pattern)
+{
+    dbfile.open(dbpath, fstream::in);
+    if(dbfile.is_open()){
+        vector<pair<string,string>> result;
+        string buf;
+        while(std::getline(dbfile, buf)){
+            string key = buf.substr(0, buf.find('='));
+            string value = buf.substr(buf.find('=')+1);
+            if(regex_match(value, std::regex(pattern))){
+                result.push_back(pair<string,string>(key,value));
+            }
+        }
+        if(!result.empty()){
+            return Answer("FIND@SUCCESS", result);
+        }
+    }
+    return Answer("FIND@FAIL");
 }

@@ -16,7 +16,12 @@ public:
     std::vector<std::string> args;
     Request(){}
     Request(REQ_TYPES _type, std::vector<std::string> _args) : type(_type), args(_args) {}
-
+    static bool isAdminCommand(REQ_TYPES r){
+        if((r == ADDUSER) | (r == LSUSERS) | (r == RMUSER) | (r == PASSWD)){
+            return true;
+        }
+        return false;
+    }
 };
 
 /**
@@ -24,8 +29,9 @@ public:
  */
 class Answer{
 public:
-    const std::string HEADER;
-    const std::vector<std::pair<std::string, std::string>> DATA;
+    std::string HEADER;
+    std::vector<std::pair<std::string, std::string>> DATA;
+
     Answer(std::string _header = "") : HEADER(_header){}
     Answer(std::string _header, std::vector<std::pair<std::string, std::string>> _data): HEADER(_header), DATA(_data) {}
 };

@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include <regex>
+#include <string>
 /**
  * @brief The Database class
  *
@@ -23,6 +24,8 @@ public:
      * @return An Answer object
      */
     Answer handle(Request req);
+    std::string path() const { return dbpath; }
+    static void makeLow(std::string& s);
 private:
     std::fstream dbfile;
     std::string dbpath;
@@ -32,5 +35,4 @@ private:
     Answer rmAll();
     Answer find(std::string pattern);
 };
-
 #endif // DB_H

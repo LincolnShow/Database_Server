@@ -20,7 +20,10 @@ Answer User::exec(std::string s) {
                             type = ADMIN;
                         }
                         logged = true;
-                        userdb = new DB(s.substr(s.find(':')+1));
+                        if(type != ADMIN){
+                            userdb = new DB(s.substr(s.find(':')+1));
+                        }
+                        uf.close();
                         return Answer("LOG@SUCCESS");
                     }
                 }
@@ -47,7 +50,7 @@ Answer User::exec(std::string s) {
                 return Answer("PERMISSION DENIED");
             }
         }
-        else{
+        else if (type != ADMIN){
             return userdb->handle(r);
         }
     }

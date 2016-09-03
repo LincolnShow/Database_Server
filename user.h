@@ -7,7 +7,7 @@
 #include <cstring>
 const std::string USERFILE = "passwords.txt";
 const std::string DBFOLDER = "dbs";
-const char SEP = '\\';
+const char SEP = '/';
 /**
  * @brief The User class allows users to log into system and execute commands
  */

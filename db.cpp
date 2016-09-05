@@ -139,6 +139,7 @@ Answer DB::find(string pattern)
                 result.push_back(pair<string,string>(key,value));
             }
         }
+        dbfile.close();
         if(!result.empty()){
             return Answer("FIND@SUCCESS", result);
         }

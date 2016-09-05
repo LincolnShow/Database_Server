@@ -144,5 +144,5 @@ void MultyServer::listeningFromSlaveDO(int i)
     std::cout<<"outMsg is char* = "<< Buffer << std::endl
             <<"Sizeof out MSG is " << sizeof (Buffer)<<std::endl;
 
-    send(Events[i].data.fd, Buffer, sizeof(Buffer), MSG_NOSIGNAL);
+    send(Events[i].data.fd, Buffer, strlen(Buffer), MSG_NOSIGNAL);
 }

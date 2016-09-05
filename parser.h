@@ -13,6 +13,9 @@ private:
     ~Parser();
     Parser(const Parser&);
 public:
+/**
+ * @brief Parses string into Request object
+ */
     static Request parseRequest(std::string s);
 };
 

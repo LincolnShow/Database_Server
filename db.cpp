@@ -44,8 +44,6 @@ Answer DB::add(string key, string value)
     if(value.size() > 255){
         value = value.substr(0, 255);
     }
-    makeLow(key);
-    makeLow(value);
     bool isNew = get(key).HEADER != "GET@SUCCESS";
     dbfile.open(dbpath, (fstream::out | fstream::app));
     if(dbfile.is_open() && isNew){
@@ -58,14 +56,12 @@ Answer DB::add(string key, string value)
 
 Answer DB::get(string key)
 {
-    makeLow(key);
     bool result = false;
     dbfile.open(dbpath, fstream::in);
     if(dbfile.is_open()){
         string buf;
         pair<string,string> result_pair;
         while(std::getline(dbfile, buf)){
-            makeLow(buf);
             if(buf.find(key+"=") != string::npos){
                 result_pair = pair<string,string>(key, buf.substr(key.size()+1));
                 result = true;
@@ -82,7 +78,6 @@ Answer DB::get(string key)
 
 Answer DB::rm(string key)
 {
-    makeLow(key);
     dbfile.open(dbpath, (fstream::in));
     fstream tmp;
     tmp.open(dbpath+".tmp", fstream::out);
@@ -90,7 +85,6 @@ Answer DB::rm(string key)
     if(dbfile.is_open() && tmp.is_open()){
         string buf;
         while(std::getline(dbfile, buf)){
-            makeLow(buf);
             if(buf.find(key+"=") == string::npos){
                 tmp << buf+"\n";
             }
@@ -126,7 +120,6 @@ Answer DB::rmAll()
 
 Answer DB::find(string pattern)
 {
-    makeLow(pattern);
     dbfile.open(dbpath, fstream::in);
     if(dbfile.is_open()){
         vector<pair<string,string>> result;
@@ -134,7 +127,6 @@ Answer DB::find(string pattern)
         while(std::getline(dbfile, buf)){
             string key = buf.substr(0, buf.find('='));
             string value = buf.substr(buf.find('=')+1);
-            makeLow(value);
             if(regex_match(value, std::regex(pattern))){
                 result.push_back(pair<string,string>(key,value));
             }
@@ -145,10 +137,4 @@ Answer DB::find(string pattern)
         }
     }
     return Answer("FIND@FAIL");
-}
-
-void DB::makeLow(string& s){
-    for(string::size_type i = 0; i < s.length(); ++i){
-        s[i] = tolower(s[i]);
-    }
 }

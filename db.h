@@ -29,7 +29,6 @@ public:
      * @return Path to a database
      */
     std::string path() const { return dbpath; }
-    static void makeLow(std::string& s);
 private:
     std::fstream dbfile;
     std::string dbpath;

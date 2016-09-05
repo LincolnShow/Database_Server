@@ -59,8 +59,6 @@ Answer User::exec(std::string s) {
 
 Answer User::addUser(string login, string pass)
 {
-    DB::makeLow(login);
-    DB::makeLow(pass);
     fstream uf;
     uf.open(USERFILE, (fstream::out | fstream::in | fstream::app));
     if(uf.is_open() && !exists(login)){
@@ -97,7 +95,6 @@ Answer User::lsUsers()
 
 Answer User::rmUser(string login, bool hard)
 {
-    DB::makeLow(login);
     std::regex urgx(login + "=.*");
     fstream uf;
     uf.open(USERFILE, (fstream::in));
@@ -107,7 +104,6 @@ Answer User::rmUser(string login, bool hard)
     if(uf.is_open() && tmp.is_open()){
         string buf;
         while(std::getline(uf, buf)){
-            DB::makeLow(buf);
             if(!regex_match(buf, urgx)){
                 tmp << buf+"\n";
             }
@@ -131,7 +127,6 @@ Answer User::rmUser(string login, bool hard)
 
 Answer User::passwd(string login, string pass)
 {
-    DB::makeLow(login);
     std::regex urgx(login + "=.*");
     fstream uf;
     uf.open(USERFILE, (fstream::in));
@@ -141,7 +136,6 @@ Answer User::passwd(string login, string pass)
     if(uf.is_open() && tmp.is_open()){
         string buf;
         while(std::getline(uf, buf)){
-            DB::makeLow(buf);
             if(!regex_match(buf, urgx)){
                 tmp << buf+"\n";
             }

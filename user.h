@@ -15,9 +15,22 @@ class User {
 public:
     User(){}
     ~User(){ if(userdb!=nullptr){ delete userdb; userdb = nullptr;} }
+    /**
+     * @brief Executes the command and returns an Answer object
+     * @param s - text command to be executed
+     */
     Answer exec(std::string s);
+    /**
+     * @brief Tells whether user is logged or not
+     */
     bool isLogged() const { return logged; }
+    /**
+     * @brief Tells whether user is admin or not
+     */
     bool isAdmin() const { return ((type == ADMIN) ? true : false); }
+    /**
+     * @brief Returns a pointer to the database associated with user
+     */
     DB* getDB() const { return userdb; }
 private:
     enum USERTYPE{

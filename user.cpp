@@ -60,7 +60,7 @@ Answer User::exec(std::string s) {
 Answer User::addUser(string login, string pass)
 {
     fstream uf;
-    uf.open(USERFILE, (fstream::out | fstream::in | fstream::app));
+    uf.open(USERFILE, (fstream::out | fstream::app));
     if(uf.is_open() && !exists(login)){
         uf << login+"="+pass+ ":" + DBFOLDER + SEP + login + ".db\n";
         uf.close();

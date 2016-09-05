@@ -31,7 +31,7 @@ Answer DB::handle(Request req)
         return find(req.args[0]);
         break;
     default:
-        return Answer();
+        return Answer("UNKNOWN COMMAND");
         break;
     }
 }

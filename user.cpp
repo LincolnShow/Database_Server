@@ -41,7 +41,7 @@ Answer User::exec(std::string s) {
                 case Request::LSUSERS:
                     return lsUsers();
                 case Request::RMUSER:
-                    return ((r.args.size() > 1) ? (rmUser(r.args[0], true)) : (rmUser(r.args[0])));
+                    return rmUser(r.args[0], true);
                 case Request::PASSWD:
                     return passwd(r.args[0], r.args[1]);
                 }

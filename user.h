@@ -14,7 +14,7 @@ const char SEP = '/';
 class User {
 public:
     User(){}
-    ~User(){ if(userdb!=nullptr){ userdb->~DB(); userdb = nullptr;} }
+    ~User(){ if(userdb!=nullptr){ delete userdb; userdb = nullptr;} }
     Answer exec(std::string s);
     bool isLogged() const { return logged; }
     bool isAdmin() const { return ((type == ADMIN) ? true : false); }

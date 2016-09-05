@@ -24,6 +24,10 @@ public:
      * @return An Answer object
      */
     Answer handle(Request req);
+    /**
+     * @brief Return a path to a database
+     * @return Path to a database
+     */
     std::string path() const { return dbpath; }
     static void makeLow(std::string& s);
 private:

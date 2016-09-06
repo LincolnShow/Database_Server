@@ -1,0 +1,34 @@
+Port set to: 12345
+Configured for testing
+Openning file TESTS/ADDUSER.txt
+OK
+Test name is INIT
+Expected Result is LOG@SUCCESS
+ResultLOG@SUCCESS
+Test name:INIT passed
+
+Test name is ADD NEW USER
+Expected Result is ADDUSER@SUCCESS
+ResultADDUSER@SUCCESS
+Test name:ADD NEW USER passed
+
+Test name is ADD EXISTING USER WITH THE SAME PASSWORD
+Expected Result is ADDUSER@FAIL
+ResultADDUSER@FAIL
+Test name:ADD EXISTING USER WITH THE SAME PASSWORD passed
+
+Test name is ADD EXISTING USER WITH DIFFERENT PASSWORD
+Expected Result is ADDUSER@FAIL
+ResultADDUSER@FAIL
+Test name:ADD EXISTING USER WITH DIFFERENT PASSWORD passed
+
+Test name is ADD NEW USER WITHOUT PASSWORD
+Expected Result is ADDUSER@SUCCESS
+ResultADDUSER@SUCCESS
+Test name:ADD NEW USER WITHOUT PASSWORD passed
+
+Test name is END
+Expected Result is RMUSER@SUCCESSRMUSER@SUCCESS
+ResultRMUSER@SUCCESSRMUSER@SUCCESS
+Test name:END passed
+

@@ -1,0 +1,19 @@
+Port set to: 12345
+Configured for testing
+Openning file TESTS/RMUSER.txt
+OK
+Test name is INIT
+Expected Result is LOG@SUCCESSADDUSER@SUCCESS
+ResultLOG@SUCCESSADDUSER@SUCCESS
+Test name:INIT passed
+
+Test name is REMOVE EXISTING USER
+Expected Result is RMUSER@SUCCESS
+ResultRMUSER@SUCCESS
+Test name:REMOVE EXISTING USER passed
+
+Test name is REMOVE NOT EXISTING USER
+Expected Result is RMUSER@FAIL
+ResultRMUSER@FAIL
+Test name:REMOVE NOT EXISTING USER passed
+

@@ -1,0 +1,24 @@
+Port set to: 12345
+Configured for testing
+Openning file TESTS/ADD.txt
+OK
+Test name is INIT
+Expected Result is LOG@SUCCESSRMALL@SUCCESS
+ResultLOG@SUCCESSRMALL@SUCCESS
+Test name:INIT passed
+
+Test name is ADD NEW KEY WITH VALUE
+Expected Result is ADD@SUCCESS
+ResultADD@SUCCESS
+Test name:ADD NEW KEY WITH VALUE passed
+
+Test name is ADD EXISTING VALUE
+Expected Result is ADD@FAIL
+ResultADD@FAIL
+Test name:ADD EXISTING VALUE passed
+
+Test name is ADD NEW KEY WITHOUT VALUE 
+Expected Result is ADD@SUCCESS
+ResultADD@SUCCESS
+Test name:ADD NEW KEY WITHOUT VALUE  passed
+

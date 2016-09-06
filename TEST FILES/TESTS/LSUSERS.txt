@@ -9,7 +9,7 @@ ADDUSER:test1=abc
 ADDUSER:test2=def
 ADDUSER:test3=hij
 }
-TEST 1
+LIST ALL USERS
 LSUSERS@SUCCESS
 admin=123=
 test=test=dbs/test.db

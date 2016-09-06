@@ -1,0 +1,29 @@
+Port set to: 12345
+Configured for testing
+Openning file TESTS/FIND.txt
+OK
+Test name is INIT
+Expected Result is LOG@SUCCESSRMALL@SUCCESSADD@SUCCESSADD@SUCCESSADD@SUCCESSADD@SUCCESSADD@SUCCESS
+ResultLOG@SUCCESSRMALL@SUCCESSADD@SUCCESSADD@SUCCESSADD@SUCCESSADD@SUCCESSADD@SUCCESS
+Test name:INIT passed
+
+Test name is FIND ALL VALUES
+Expected Result is FIND@SUCCESSkey1=manualkey2=machinekey3=mascotkey4=smellkey5=light
+ResultFIND@SUCCESSkey1=manualkey2=machinekey3=mascotkey4=smellkey5=light
+Test name:FIND ALL VALUES passed
+
+Test name is FIND VALUES STARTING WITH "ma"
+Expected Result is FIND@SUCCESSkey1=manualkey2=machinekey3=mascot
+ResultFIND@SUCCESSkey1=manualkey2=machinekey3=mascot
+Test name:FIND VALUES STARTING WITH "ma" passed
+
+Test name is FIND NOT EXISTING VALUE
+Expected Result is FIND@FAIL
+ResultFIND@FAIL
+Test name:FIND NOT EXISTING VALUE passed
+
+Test name is END
+Expected Result is RMALL@SUCCESS
+ResultRMALL@SUCCESS
+Test name:END passed
+

@@ -1,0 +1,14 @@
+Port set to: 12345
+Configured for testing
+Openning file TESTS/RMALL.txt
+OK
+Test name is INIT
+Expected Result is LOG@SUCCESSADD@SUCCESSADD@SUCCESSADD@SUCCESS
+ResultLOG@SUCCESSADD@SUCCESSADD@SUCCESSADD@SUCCESS
+Test name:INIT passed
+
+Test name is CLEAR THE DATABASE
+Expected Result is RMALL@SUCCESSFIND@FAIL
+ResultRMALL@SUCCESSFIND@FAIL
+Test name:CLEAR THE DATABASE passed
+

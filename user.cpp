@@ -3,8 +3,7 @@
 using namespace std;
 Answer User::exec(std::string s) {
     Request r = Parser::parseRequest(s);
-    if(!logged){
-        if((r.type == Request::LOG)){
+    if((r.type == Request::LOG)){
             fstream uf;
             uf.open(USERFILE, fstream::in);
             if(!uf.is_open()){
@@ -19,7 +18,14 @@ Answer User::exec(std::string s) {
                         if(r.args[0] == "admin"){
                             type = ADMIN;
                         }
+                        else{
+                            type = USER;
+                        }
                         logged = true;
+                        if(userdb != nullptr){
+                            delete userdb;
+                            userdb = nullptr;
+                        }
                         if(type != ADMIN){
                             userdb = new DB(s.substr(s.find(':')+1));
                         }
@@ -29,10 +35,8 @@ Answer User::exec(std::string s) {
                 }
                 return Answer("LOG@FAIL");
             }
-        }
-        return Answer("LOGIN REQUIRED");
     }
-    else{
+    else if (logged){
         if(Request::isAdminCommand(r.type)){
             if(type == ADMIN){
                 switch(r.type){
@@ -54,7 +58,7 @@ Answer User::exec(std::string s) {
             return userdb->handle(r);
         }
     }
-    return Answer("SYNTAX ERROR");
+    return Answer("LOGIN REQUIRED");
 }
 
 Answer User::addUser(string login, string pass)

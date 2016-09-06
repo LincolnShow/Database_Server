@@ -1,0 +1,29 @@
+Port set to: 12345
+Configured for testing
+Openning file TESTS/PASSWD.txt
+OK
+Test name is INIT
+Expected Result is LOG@SUCCESSADDUSER@SUCCESS
+ResultLOG@SUCCESSADDUSER@SUCCESS
+Test name:INIT passed
+
+Test name is CHANGE PASSWORD OF EXISTING USER
+Expected Result is PASSWD@SUCCESS
+ResultPASSWD@SUCCESS
+Test name:CHANGE PASSWORD OF EXISTING USER passed
+
+Test name is REMOVE PASSWORD OF EXISTING USER
+Expected Result is PASSWD@SUCCESS
+ResultPASSWD@SUCCESS
+Test name:REMOVE PASSWORD OF EXISTING USER passed
+
+Test name is CHANGE PASSWORD OF NOT EXISTING USER
+Expected Result is PASSWD@FAIL
+ResultPASSWD@FAIL
+Test name:CHANGE PASSWORD OF NOT EXISTING USER passed
+
+Test name is END
+Expected Result is RMUSER@SUCCESS
+ResultRMUSER@SUCCESS
+Test name:END passed
+

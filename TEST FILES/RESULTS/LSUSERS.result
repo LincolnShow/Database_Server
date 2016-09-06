@@ -1,0 +1,19 @@
+Port set to: 12345
+Configured for testing
+Openning file TESTS/LSUSERS.txt
+OK
+Test name is INIT
+Expected Result is LOG@SUCCESSADDUSER@SUCCESSADDUSER@SUCCESSADDUSER@SUCCESS
+ResultLOG@SUCCESSADDUSER@SUCCESSADDUSER@SUCCESSADDUSER@SUCCESS
+Test name:INIT passed
+
+Test name is LIST ALL USERS
+Expected Result is LSUSERS@SUCCESSadmin=123=test=test=dbs/test.dbtest1=abc=dbs/test1.dbtest2=def=dbs/test2.dbtest3=hij=dbs/test3.db
+ResultLSUSERS@SUCCESSadmin=123=test=test=dbs/test.dbtest1=abc=dbs/test1.dbtest2=def=dbs/test2.dbtest3=hij=dbs/test3.db
+Test name:LIST ALL USERS passed
+
+Test name is END
+Expected Result is RMUSER@SUCCESSRMUSER@SUCCESSRMUSER@SUCCESS
+ResultRMUSER@SUCCESSRMUSER@SUCCESSRMUSER@SUCCESS
+Test name:END passed
+

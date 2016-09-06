@@ -9,7 +9,7 @@ ADD:key1=val1
 ADD:key2=val2
 ADD:key3=val3
 }
-TEST 1
+CLEAR THE DATABASE
 RMALL@SUCCESS
 FIND@FAIL
 {

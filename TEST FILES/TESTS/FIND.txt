@@ -1,5 +1,6 @@
 INIT
 LOG@SUCCESS
+RMALL@SUCCESS
 ADD@SUCCESS
 ADD@SUCCESS
 ADD@SUCCESS
@@ -7,13 +8,14 @@ ADD@SUCCESS
 ADD@SUCCESS
 {
 LOG:test=test
+RMALL
 ADD:key1=manual
 ADD:key2=machine
 ADD:key3=mascot
 ADD:key4=smell
 ADD:key5=light
 }
-TEST 1
+FIND ALL VALUES
 FIND@SUCCESS
 key1=manual
 key2=machine
@@ -23,7 +25,7 @@ key5=light
 {
 FIND:.*
 }
-TEST 2
+FIND VALUES STARTING WITH "ma"
 FIND@SUCCESS
 key1=manual
 key2=machine
@@ -31,7 +33,7 @@ key3=mascot
 {
 FIND:ma.*
 }
-TEST 3
+FIND NOT EXISTING VALUE
 FIND@FAIL
 {
 FIND:something

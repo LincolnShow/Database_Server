@@ -1,0 +1,29 @@
+Port set to: 12345
+Configured for testing
+Openning file TESTS/GET.txt
+OK
+Test name is INIT
+Expected Result is LOG@SUCCESSRMALL@SUCCESSADD@SUCCESS
+ResultLOG@SUCCESSRMALL@SUCCESSADD@SUCCESS
+Test name:INIT passed
+
+Test name is GET EXISTING KEY
+Expected Result is GET@SUCCESSkey=val
+ResultGET@SUCCESSkey=val
+Test name:GET EXISTING KEY passed
+
+Test name is GET NOT EXISTING KEY
+Expected Result is GET@FAIL
+ResultGET@FAIL
+Test name:GET NOT EXISTING KEY passed
+
+Test name is GET REMOVED KEY
+Expected Result is RM@SUCCESSGET@FAIL
+ResultRM@SUCCESSGET@FAIL
+Test name:GET REMOVED KEY passed
+
+Test name is END
+Expected Result is RMALL@SUCCESS
+ResultRMALL@SUCCESS
+Test name:END passed
+

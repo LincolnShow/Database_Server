@@ -1,0 +1,19 @@
+Port set to: 12345
+Configured for testing
+Openning file TESTS/RM.txt
+OK
+Test name is INIT
+Expected Result is LOG@SUCCESSRMALL@SUCCESSADD@SUCCESS
+ResultLOG@SUCCESSRMALL@SUCCESSADD@SUCCESS
+Test name:INIT passed
+
+Test name is REMOVE EXISTING KEY
+Expected Result is RM@SUCCESS
+ResultRM@SUCCESS
+Test name:REMOVE EXISTING KEY passed
+
+Test name is REMOVE NOT EXISTING KEY
+Expected Result is RM@FAIL
+ResultRM@FAIL
+Test name:REMOVE NOT EXISTING KEY passed
+

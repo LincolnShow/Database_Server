@@ -1,0 +1,22 @@
+INIT
+LOG@SUCCESS
+RMALL@SUCCESS
+{
+LOG:test=test
+RMALL
+}
+TEST 1
+ADD@SUCCESS
+{
+ADD:key=val
+}
+TEST 2
+ADD@FAIL
+{
+ADD:key=val2
+}
+TEST 3
+ADD@SUCCESS
+{
+ADD:key2=
+}

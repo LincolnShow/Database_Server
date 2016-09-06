@@ -1,0 +1,43 @@
+INIT
+LOG@SUCCESS
+ADD@SUCCESS
+ADD@SUCCESS
+ADD@SUCCESS
+ADD@SUCCESS
+ADD@SUCCESS
+{
+LOG:test=test
+ADD:key1=manual
+ADD:key2=machine
+ADD:key3=mascot
+ADD:key4=smell
+ADD:key5=light
+}
+TEST 1
+FIND@SUCCESS
+key1=manual
+key2=machine
+key3=mascot
+key4=smell
+key5=light
+{
+FIND:.*
+}
+TEST 2
+FIND@SUCCESS
+key1=manual
+key2=machine
+key3=mascot
+{
+FIND:ma.*
+}
+TEST 3
+FIND@FAIL
+{
+FIND:something
+}
+END
+RMALL@SUCCESS
+{
+RMALL
+}

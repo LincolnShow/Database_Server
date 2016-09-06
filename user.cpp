@@ -15,8 +15,8 @@ Answer User::exec(std::string s) {
             if(uf.is_open()){
                 string s;
                 while(std::getline(uf, s)){
-                    if(regex_match(s, std::regex(r.args[0]+"="+r.args[1]+".*"))){
-                        if(!strcasecmp(r.args[0].c_str(), "admin")){
+                    if(regex_match(s, std::regex(r.args[0]+"="+r.args[1]+":.*"))){
+                        if(r.args[0] == "admin"){
                             type = ADMIN;
                         }
                         logged = true;

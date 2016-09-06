@@ -11,7 +11,7 @@ LOG:admin=321
 }
 
 TEST 3
-LOG@FAIL
+LOGIN REQUIRED
 {
 LOG:
 }

@@ -12,26 +12,37 @@ Request Parser::parseRequest(std::string s) {
         rargs.push_back(s.substr(arg2+1));
     }
     Request::REQ_TYPES rtype = Request::NIL;
-    if(!strcasecmp(buf.c_str(), "ADD")){
+    int numOfArgs = -1;
+    if(buf == "ADD"){
         rtype = Request::ADD;
-    } else if(!strcasecmp(buf.c_str(), "GET")){
+        numOfArgs = 2;
+    } else if(buf == "GET"){
         rtype = Request::GET;
-    } else if(!strcasecmp(buf.c_str(), "RM")){
+        numOfArgs = 1;
+    } else if(buf == "RM"){
         rtype = Request::RM;
-    } else if(!strcasecmp(buf.c_str(), "RMALL")){
+        numOfArgs = 1;
+    } else if(buf == "RMALL"){
         rtype = Request::RMALL;
-    } else if(!strcasecmp(buf.c_str(), "FIND")){
+        numOfArgs = 0;
+    } else if(buf == "FIND"){
         rtype = Request::FIND;
-    } else if(!strcasecmp(buf.c_str(), "LOG")){
+        numOfArgs = 1;
+    } else if(buf == "LOG"){
         rtype = Request::LOG;
-    } else if(!strcasecmp(buf.c_str(), "ADDUSER")){
+        numOfArgs = 2;
+    } else if(buf == "ADDUSER"){
         rtype = Request::ADDUSER;
-    } else if(!strcasecmp(buf.c_str(), "LSUSERS")){
+        numOfArgs = 2;
+    } else if(buf == "LSUSERS"){
         rtype = Request::LSUSERS;
-    } else if(!strcasecmp(buf.c_str(), "RMUSER")){
+        numOfArgs = 0;
+    } else if(buf == "RMUSER"){
         rtype = Request::RMUSER;
-    } else if(!strcasecmp(buf.c_str(), "PASSWD")){
+        numOfArgs = 1;
+    } else if(buf == "PASSWD"){
         rtype = Request::PASSWD;
+        numOfArgs = 2;
     } else {
         return Request();
     }
@@ -41,6 +52,9 @@ Request Parser::parseRequest(std::string s) {
                 return Request();
             }
         }
+    }
+    if(rargs.size() < numOfArgs){
+        return Request();
     }
     return Request(rtype, rargs);
 }

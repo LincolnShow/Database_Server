@@ -21,15 +21,10 @@ LOG:admin=
 TEST 5
 LOG@SUCCESS
 {
-LOG:dima=0000
+LOG:test=test
 }
 TEST 6
 LOG@FAIL
 {
-LOG:dima=321
-}
-TEST 7
-LOG@SUCCESS
-{
-LOG:NoPassUser=
+LOG:test=321
 }

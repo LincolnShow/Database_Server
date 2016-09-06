@@ -3,27 +3,33 @@ LOG@SUCCESS
 {
 LOG:admin=123
 }
-
 TEST 2
 LOG@FAIL
 {
-LOG:admin=321
+LOG:admin=kgjhgktrhjghjkf
 }
-
 TEST 3
 LOGIN REQUIRED
 {
 LOG:
 }
-
 TEST 4
+LOG@FAIL
+{
+LOG:admin=
+}
+TEST 5
 LOG@SUCCESS
 {
 LOG:dima=0000
 }
-
-TEST 5
+TEST 6
 LOG@FAIL
 {
 LOG:dima=321
+}
+TEST 7
+LOG@SUCCESS
+{
+LOG:NoPassUser=
 }

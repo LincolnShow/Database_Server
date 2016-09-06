@@ -54,7 +54,7 @@ Answer User::exec(std::string s) {
             return userdb->handle(r);
         }
     }
-    return Answer();
+    return Answer("SYNTAX ERROR");
 }
 
 Answer User::addUser(string login, string pass)
@@ -169,7 +169,7 @@ bool User::exists(string login)
         string buf;
         while(std::getline(uf, buf)){
             buf = buf.substr(0, buf.find('='));
-            if(!strcasecmp(login.c_str(), buf.c_str())){
+            if(login == buf){
                 result = true;
                 break;
             }

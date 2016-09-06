@@ -1,0 +1,29 @@
+TEST 1
+LOG@SUCCESS
+{
+LOG:admin=123
+}
+
+TEST 2
+LOG@FAIL
+{
+LOG:admin=321
+}
+
+TEST 3
+LOG@FAIL
+{
+LOG:
+}
+
+TEST 4
+LOG@SUCCESS
+{
+LOG:dima=0000
+}
+
+TEST 5
+LOG@FAIL
+{
+LOG:dima=321
+}

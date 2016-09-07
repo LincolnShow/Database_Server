@@ -5,7 +5,7 @@ OK
 Test name is INIT
 Expected Result is LOG@SUCCESSRMALL@SUCCESS
 ResultLOG@SUCCESSRMALL@SUCCESS
-Test name:INIT passed
+Test name:INIT success
 
 Test name is ADD NEW KEY WITH VALUE
 Expected Result is ADD@SUCCESS

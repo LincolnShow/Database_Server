@@ -29,7 +29,7 @@ public:
      */
     bool isAdmin() const { return ((type == ADMIN) ? true : false); }
     /**
-     * @brief Returns a pointer to the database associated with user
+     * @brief Returns a pointer to the database associated with the user
      */
     DB* getDB() const { return userdb; }
 private:

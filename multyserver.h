@@ -43,7 +43,7 @@ protected:
     int set_nonblock(int fd);
 
     /**
-     * @brief Recievs/Sends messages and executes nessesory User's object with incoming string as a parametr.
+     * @brief Recieves/Sends messages and executes nessesary User's object with incoming string as a parametr.
      * @param fd - Socket descriptor
      * @return Returns -1 if error
      */

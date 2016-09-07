@@ -10,13 +10,13 @@
 class Request{
 public:
 /**
- * @brief Enumeration type represents all possible commands
+ * @brief Enumeration type represents all possible requests
  */
     enum REQ_TYPES{
         NIL, ADD, GET, RM, RMALL, FIND, LOG, ADDUSER, LSUSERS, RMUSER, PASSWD
     };
     /**
-     * @brief Type of request
+     * @brief Request type
      */
     REQ_TYPES type = NIL;
     /**

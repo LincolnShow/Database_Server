@@ -25,8 +25,8 @@ public:
      */
     Answer handle(Request req);
     /**
-     * @brief Return a path to a database
-     * @return Path to a database
+     * @brief Return a path to the database
+     * @return Path to the database
      */
     std::string path() const { return dbpath; }
 private:
